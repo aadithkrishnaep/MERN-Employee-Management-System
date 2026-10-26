@@ -1,0 +1,27 @@
+{
+  "name": "mern-employee-management-system",
+  "version": "1.0.0",
+  "description": "Full Stack MERN Employee Management System - Capstone Project for ICTAK",
+  "scripts": {
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client",
+    "start": "node server/src/server.js",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "ictak",
+    "capstone"
+  ],
+  "author": "Aadith Krishna",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
