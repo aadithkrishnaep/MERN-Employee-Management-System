@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const connectDB = require('./config/db');
@@ -32,8 +33,15 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'UP', message: 'MERN Employee API is running' });
 });
 
-// Serve frontend client in production
-const clientBuildPath = path.join(__dirname, '../../client/dist');
+// Resolve client static assets path
+let clientBuildPath = path.join(__dirname, '../public');
+if (!fs.existsSync(path.join(clientBuildPath, 'index.html'))) {
+  clientBuildPath = path.join(__dirname, '../../client/dist');
+}
+if (!fs.existsSync(path.join(clientBuildPath, 'index.html'))) {
+  clientBuildPath = path.join(__dirname, '../dist');
+}
+
 app.use(express.static(clientBuildPath));
 
 app.get('*', (req, res, next) => {
@@ -42,11 +50,11 @@ app.get('*', (req, res, next) => {
     return res.status(404).json({ success: false, message: 'API route not found' });
   }
   // Otherwise serve React client
-  res.sendFile(path.join(clientBuildPath, 'index.html'), (err) => {
-    if (err) {
-      res.status(200).send('API is running. Client build not yet generated.');
-    }
-  });
+  const indexPath = path.join(clientBuildPath, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  res.status(200).send('API is running. Client build not found.');
 });
 
 // Centralized error handling
