@@ -5,11 +5,19 @@
 > **Project:** Capstone Project - Employee Management System  
 > **Developer:** Aadith Krishna  
 > **Institution:** Sahrdaya College of Engineering & Technology, Kodakara  
+> **Live Hosted Application:** [https://mern-employee-management-system-z1t5.onrender.com](https://mern-employee-management-system-z1t5.onrender.com)  
 
 ---
 
 ## 🌟 Executive Summary
 The **Employee Management System** is a full-stack web application built on the **MERN** stack (MongoDB, Express.js, React.js, and Node.js). It provides an automated, centralized platform for HR professionals and administrators to view, search, register, update, and manage employee records efficiently across an organization.
+
+---
+
+## 🌐 Live URLs
+- **Web Application:** [https://mern-employee-management-system-z1t5.onrender.com](https://mern-employee-management-system-z1t5.onrender.com)
+- **API Health Check:** [https://mern-employee-management-system-z1t5.onrender.com/api/health](https://mern-employee-management-system-z1t5.onrender.com/api/health)
+- **GitHub Repository:** [https://github.com/aadithkrishnaep/MERN-Employee-Management-System](https://github.com/aadithkrishnaep/MERN-Employee-Management-System)
 
 ---
 
@@ -39,6 +47,7 @@ mern-employee-management-system/
 │   │   └── server.js           # Server bootstrap & static hosting
 │   ├── package.json
 │   └── .env.example
+├── Summer_Internship_Report_MERN_Employee_System.docx  # Official report document
 ├── .gitignore
 ├── package.json                # Root package orchestration
 └── README.md
@@ -64,7 +73,7 @@ mern-employee-management-system/
 - **Frontend:** React 18, React-Bootstrap 2, Bootstrap 5, Bootstrap Icons, React Router DOM 6, Vite 6
 - **Backend:** Node.js 24, Express 4, Mongoose 8, CORS, Morgan, Dotenv
 - **Database:** MongoDB Atlas (Cloud Database)
-- **Deployment:** Render (Web Service) / Vercel
+- **Deployment:** Render (Web Service)
 
 ---
 
@@ -83,17 +92,13 @@ cd MERN-Employee-Management-System
 
 ### 3. Install Dependencies
 ```bash
-# Install root, client, and server dependencies in one command:
 npm run install-all
 ```
 
 ### 4. Configure Environment Variables
 Copy `.env.example` in both `server/` and `client/`:
 ```bash
-# In server/
 cp server/.env.example server/.env
-
-# In client/
 cp client/.env.example client/.env
 ```
 Update `server/.env` with your MongoDB Atlas URI:
@@ -104,7 +109,6 @@ MONGODB_URI=your_mongodb_atlas_connection_string
 
 ### 5. Start Development Servers
 ```bash
-# Run both Backend API (port 5000) and Frontend Client (port 5173) concurrently:
 npm run dev
 ```
 Open **http://localhost:5173** to use the application!
